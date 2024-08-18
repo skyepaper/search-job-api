@@ -18,6 +18,10 @@ const CompanySchema=new Schema({
     link:{
         type:String,
         default:''
+    },
+    email:{
+        type:String,
+        default:''
     }
 })
 
