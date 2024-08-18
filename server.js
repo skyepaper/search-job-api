@@ -11,7 +11,7 @@ app.use(cors());
 
 server = require('http').createServer(app);
 
-mongoose.connect('-- hidden --', {
+mongoose.connect('mongodb+srv://borismirevbm:2YacEBc3qgz4OiLJ@blocks.6ud9dig.mongodb.net/search-job?retryWrites=true&w=majority', {
     useNewUrlParser:true,
     useUnifiedTopology:true
 }).then(()=>console.log('Connected to DB'))
@@ -46,10 +46,11 @@ app.get('/companies', cors(), async(req,res)=>{
 app.post('/company/new', async (req,res)=>{
 
   const company = new Company({
-      name:req.body.name,
+     name:req.body.name,
       city:req.body.city,
       logo:req.body.logo,
-      link:req.body.link
+      link:req.body.link,
+      email:req.body.email
   });
   company.save();
   res.json(company);
